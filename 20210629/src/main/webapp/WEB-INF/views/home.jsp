@@ -27,6 +27,9 @@
 	<div>
 		<h1><a href="chartTest.do">chartTest</a></h1>
 	</div>
+		<div>
+		<h1><a href="chartJS.do">chart.js</a></h1>
+	</div>
 </body>
 
 <script>

@@ -35,4 +35,10 @@ public class HomeController {
 		
 		return "chartTest";
 	}
+	
+	@RequestMapping("chartJS.do")
+	public String chartJs() {
+		
+		return "chartJS";
+	}
 }
