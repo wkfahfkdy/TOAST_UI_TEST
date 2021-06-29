@@ -59,17 +59,30 @@
 		el: document.getElementById('grid'), 
 		data: alist,
 		columns: [ 
-			{ header: '분야', name: 'field', align: 'center' }, 
-			{ header: '경력', name: 'career', editor: 'text' }, 
-			{ header: '나이', name: 'age' }, 
-			{ header: '희망연봉', name: 'salary_desired' } 
+			{ header: '분야', name: 'field', align: 'center', sortable: true}, 
+			{ header: '경력', name: 'career', editor: 'text', sortable: true }, 
+			{ header: '나이', name: 'age', sortable: true }, 
+			{ header: '희망연봉', name: 'salary_desired', sortable: true } 
 		],
-		pagination: true,
+		// 페이징처리
+		//pagination: true,
+		
+		// 무한 스크롤 - BodyHeight 보이는 것보다 조금 더 많은 양의 perPage로 잘라야 스크롤이 생겨서 그때부터 적용됨. 그냥 페이징처리할땐 BodyHeight 필요없을듯
+		bodyHeight: 300,
 		pageOptions: {
 			useClient: true,
-		    perPage: 10
+		    perPage: 10,
+		    // 무한스크롤 옵션 
+		    type: 'scroll'
 		  }
 		});
+	
+	// 스크롤 내렸을때 내용 추가하는 것
+	grid.on('scrollEnd', () => {
+		  axios.get(alist, response => {
+		    grid.appendRows(response.data);
+		  });
+		})
 
 </script>
 
