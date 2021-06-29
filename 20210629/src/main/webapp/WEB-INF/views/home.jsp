@@ -77,12 +77,13 @@
 		  }
 		});
 	
-	// 스크롤 내렸을때 내용 추가하는 것
-	grid.on('scrollEnd', () => {
+	// 스크롤 내렸을때 내용 추가하는 것인데 지금 당장은 없어도된다.
+	// 나중에 DB 연동 시에 필요한 듯 하다.
+/* 	grid.on('scrollEnd', () => {
 		  axios.get(alist, response => {
 		    grid.appendRows(response.data);
 		  });
-		})
+		}) */
 
 </script>
 
