@@ -4,6 +4,7 @@
 <%@ page session="false" %>
 <html>
 <head>
+<!-- 이유는 모르겠는데 다른 사람들과 내용은 같다. 근데 내가 한 순서대로 해야지 페이징 같은 옵션 적용이 제대로 되었음. -->
 <link rel="stylesheet" href="https://uicdn.toast.com/tui-grid/latest/tui-grid.css" />
 <link rel="stylesheet" href="https://uicdn.toast.com/tui.pagination/latest/tui-pagination.css" />
 <script type="text/javascript" src="https://uicdn.toast.com/tui.code-snippet/v1.5.0/tui-code-snippet.js"></script>
@@ -40,7 +41,8 @@
 	// 나는 "" + "" + ... 이런 식으로 해야할 줄 알았는데 아니었음. 이렇게하면 JSON 형식으로 나오는게 아니라 한 문장으로 나오는 것이라 틀린 것이었다.
 	var alist = [
 		<c:forEach items='${list}' var='list' varStatus='status'>
-			{ field:'${list.fileId}', 
+			{ 
+				field:'${list.fileId}', 
 				career:'${list.career}', 
 				age:'${list.age}', 
 				salary_desired:'${list.salary_desired}' 
@@ -68,15 +70,15 @@
 			{ header: '희망연봉', name: 'salary_desired', sortable: true } 
 		],
 		// 페이징처리
-		//pagination: true,
+		pagination: true,
 		
 		// 무한 스크롤 - BodyHeight 보이는 것보다 조금 더 많은 양의 perPage로 잘라야 스크롤이 생겨서 그때부터 적용됨. 그냥 페이징처리할땐 BodyHeight 필요없을듯
-		bodyHeight: 300,
+		// bodyHeight: 300,
 		pageOptions: {
 			useClient: true,
 		    perPage: 10,
 		    // 무한스크롤 옵션 
-		    type: 'scroll'
+		    // type: 'scroll'
 		  }
 		});
 	
